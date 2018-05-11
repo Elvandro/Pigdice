@@ -21,24 +21,26 @@
         </ul>
         <p>The first player to score 100 or more points wins.</p>
         <h1><i>Let's play.</i></h1>
-        <form>
-          <div class="form-group">
-            <label for="person1">Player 1</label>
-            <input id="person1" type="text" placeholder="Enter a name">
-            <button type="submit" class="btn">submit</button>
-          </div>
-          <div class="form-group">
-            <label for="person1">Player 2</label>
-            <input id="person2" type="text" placeholder="Enter a name">
-            <button type="submit" class="btn">submit</button>
-          </div>
-        </form>
+        <div id="names">
+          <form>
+            <div class="form-group">
+              <label>Player 1</label>
+              <input type="text" placeholder="Enter a name" id="player1Name">
+              <input type="submit" value="submit">
+            </div>
+            <div class="form-group">
+              <label>Player 2</label>
+              <input type="text" placeholder="Enter a name" id="player2Name">
+              <input type="submit" value="submit">
+            </div>
+          </form>
+        </div>
       </div>
       <div class="row">
         <div class="col-md-4" id="one">
-          <h2>player 1</h2>
+          <h2><span class="player1Name"></span></h2>
           <h2>Total score:</h2>
-          <div id="player1buttons">
+          <div>
             <button id="roll" class="btn">Roll dice</button>
             <button id="hold" class="btn">Hold</button>
           </div>
@@ -50,9 +52,9 @@
           <h2>Current score:</h2>
         </div>
         <div class="col-md-4" id="two">
-          <h2>Player 2</h2>
+          <h2><span class="player2Name"></span></h2>
           <h2>Total score:</h2>
-          <div id="player2buttons">
+          <div>
             <button id="roll" class="btn">Roll dice</button>
             <button id="hold" class="btn">Hold</button>
           </div>
