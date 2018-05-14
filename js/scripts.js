@@ -1,24 +1,25 @@
 var player1 = "";
 var player2 = "";
 
-function Player(name) {
-  this.name = name;
-  this.total = 0;
-  this.diceFace = 0;
-  this.score = 0;
-}
-
-function diceThrow() {
+function diceRoll() {
   return Math.floor(6 * Math.random()) + 1;
 }
 
+function Player(name,total,diceScore,score) {
+  this.name = name;
+  this.total = 0;
+  this.diceScore = 0;
+  this.score = 0;
+}
+
+
 Player.prototype.rollAOne = function() {
-  if (this.diceFace === 1) {
+  if (this.diceScore === 1) {
     this.score = 0;
-    $('#rollDie2').toggle();
-    $('#rollDie1').toggle();
+    $('#rollP2').toggle();
+    $('#rollP1').toggle();
   } else {
-    this.score += this.diceFace;
+    this.score += this.diceScore;
   }
 }
 
@@ -43,44 +44,49 @@ $(document).ready(function() {
 
     console.log("Player 1 is: " + player1.name + " And Player 2 is: " + player2.name);
   });
-  $('#rollDie1').click(function(event) {
+  $('#rollP1').click(function(event) {
     event.preventDefault();
-    player1.diceFace = diceThrow();
-    $('#player1Score').empty()
+    player1.diceScore = diceRoll();
+    $('#p1DiceThrow').empty()
     $('#roll1Total').empty();
-    $('#player1Score').append("You rolled a: " + player1.diceFace);
+    $('#p1DiceThrow').append("Dice roll: " + player1.diceScore);
     player1.rollAOne();
-    $('#roll1Total').append("Current total is: " + player1.score);
+    $('#roll1Total').append("Current score is: " + player1.score);
   });
-  $('#rollDie2').click(function(event) {
+  $('#rollP2').click(function(event) {
     event.preventDefault();
-    player2.diceFace = diceThrow();
-    $('#player2Score').empty()
+    player2.diceScore = diceRoll();
+    $('#p2DiceThrow').empty()
     $('#roll2Total').empty();
-    $('#player2Score').append("You rolled a: " + player2.diceFace);
+    $('#p2DiceThrow').append("Dice roll: " + player2.diceScore);
     player2.rollAOne();
-    $('#roll2Total').append("Current total is: " + player2.score);
+    $('#roll2Total').append("Current score is: " + player2.score);
   });
   $("#hold").click(function(event) {
     event.preventDefault();
-    if ($('#rollDie1').is(':visible')) {
+    if ($('#rollP1').is(':visible')) {
       player1.hold();
-      $('#player1Score').empty();
-      $('#player1Final').empty();
-      $('#player1Final').append("Score for "+player1.name+" is: " + player1.total);
+      $('#p1DiceThrow').empty();
+      $('#p1FinalScore').empty();
+      $('#p1FinalScore').append("Total Score for "+player1.name+" is: " + player1.total);
       $(".roll1Total").empty();
-      $('#rollDie2').toggle();
-      $('#rollDie1').toggle();
+      $('#rollP2').toggle();
+      $('#rollP1').toggle();
       player1.winner();
     } else {
       player2.hold();
-      $('#player2Score').empty();
-      $('#player2Final').empty();
-      $('#player2Final').append("Score for "+player2.name+" is: " + player2.total);
+      $('#p2DiceThrow').empty();
+      $('#p2FinalScore').empty();
+      $('#p2FinalScore').append("Total Score for "+player2.name+" is: " + player2.total);
       $(".roll1Total").empty();
-      $('#rollDie2').toggle();
-      $('#rollDie1').toggle();
+      $('#rollP2').toggle();
+      $('#rollP1').toggle();
       player2.winner();
     }
+  });
+});
+$(document).ready(function() {
+  $("#flipy").click(function() {
+    $(".jumbotron").toggle();
   });
 });

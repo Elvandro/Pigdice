@@ -8,11 +8,11 @@
     <script src="js/scripts.js"></script>
     <title>Pig Dice</title>
   </head>
-
-<body>
-  <div class="container-fluid">
-      <div class="row">
-        <h1><i>Welcome to the game!</i></h1>
+  <body>
+    <div class="container-fluid">
+      <h1><i>Welcome to the game!</i></h1>
+      <p id="flipy">Click here to view the rules.</p>
+      <div class="jumbotron">
         <h2>Rules:</h2>
         <p>Each turn, a player repeatedly rolls a die until either a 1 is rolled or the player decides to "hold":</p>
         <ul>
@@ -21,61 +21,48 @@
           <li>If a player chooses to "hold", their turn total is added to their score, and it becomes the next player's turn.</li>
         </ul>
         <p>The first player to score 100 or more points wins.</p>
-        <h1><i>Let's play.</i></h1>
       </div>
-    <form id="rollDice" class="form-inline">
-      <div class="form-group">
-        <label for="">Player 1</label>
-        <input type="text" name="" id="player1" class="form-control" value="">
-      </div>
-      <div class="form-group">
-        <label for="">Player 2</label>
-        <input type="text" name="" id="player2" class="form-control" value="">
-      </div>
-      <button type="submit" id="submit" class="btn btn-success" name="button">Submit</button>
-    </form>
-    <div class="container-flex">
-      <div class="row">
-        <div class="col-md-6" id="one">
-          <div class="pl1">
-            <div id="roll1Total"></div>
-            <div id="player1Score"></div>
-            <div id="player1Final"></div>
-          </div>
+      <h1><i>Let's play.</i></h1>
+    </div>
+      <form id="rollDice" class="form-inline">
+        <div class="form-group">
+          <label for="">Player 1</label>
+          <input type="text" name="" id="player1" class="form-control" value="">
         </div>
-        <div class="col-md-6" id="two">
+        <div class="form-group">
+          <label for="">Player 2</label>
+          <input type="text" name="" id="player2" class="form-control" value="">
+        </div>
+        <button type="submit" id="submit" class="btn btn-success" name="button">Enter</button>
+      </form>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-5" id="one">
+            <div class="pl1">
+              <div id="p1DiceThrow"></div>
+              <div id="roll1Total"></div>
+              <div id="p1FinalScore"></div>
+            </div>
+          </div>
+        <div class="col-md-2">
+        <div>
+          <button type="submit" class="btn btn-danger" id="rollP1">Roll Player 1</button>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-success" id="hold">Hold</button>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-danger" id="rollP2">Roll Player 2</button>
+        </div>
+      </div>
+        <div class="col-md-5" id="two">
           <div class="pl2">
+            <div id="p2DiceThrow"></div>
             <div id="roll2Total"></div>
-            <div id="player2Score"></div>
-            <div id="player2Final"></div>
+            <div id="p2FinalScore"></div>
           </div>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-sm-4">
-        <button type="submit" class="btn btn-danger" id="rollDie1">Roll Player 1</button>
-      </div>
-      <div class="col-sm-4">
-        <button type="submit" class="btn btn-info" id="hold">Hold!</button>
-      </div>
-      <div class="col-sm-4">
-        <button type="submit" class="btn btn-danger" id="rollDie2">Roll Player 2</button>
-      </div>
-      <div id="play1score"></div>
-      <div id="play2score"></div>
-    </div>
-    <div class="row">
-      <div class="col-sm-6">
-
-      </div>
-      <div class="col-sm-6">
-        <div id="player2Final"></div>
-      </div>
-    </div>
-  </div>
-
-
-</body>
-
+  </body>
 </html>
