@@ -1,28 +1,75 @@
-body {
-  color: navy;
-}
-#one {
-  float: left;
-  background-color: red;
-  height: 300px;
-  padding: 50px;
-}
-#two {
-  float: right;
-  background-color: yellow;
-  height: 300px;
-  padding: 50px;
+body{
+  color:navy;
+  font-weight: bold;
+  background-color: silver;
 }
 h1 {
   text-align: center;
 }
 .row {
-  background-color: silver;
   padding: 25px;
 }
-#roll {
-  color:green;
+#rollDie2{
+  display: none;
 }
-#hold {
-  color: navy;
+#one{
+  height: 100%;
+  background: red;
+  height: 250px;
+  padding: 50px;
+}
+#two{
+  height: 100%;
+  background: yellow;
+  height: 250px;
+  padding: 50px;
+}
+.gameRules{
+  padding-left: 5%;
+  padding-top: 0.5%;
+
+}
+.herader{
+  font-weight: bold;
+  text-align: center;
+  font-size: 2em;
+  padding-top: 1%;
+}
+#player1Score{
+  padding-top: 15%;
+  padding-left: 15%;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+#player2Score{
+  padding-top: 15%;
+  padding-left: 15%;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+#roll1Total{
+  text-align: center;
+  font-size: 1.3em;
+  margin-top: 1%;
+}
+#roll2Total{
+  text-align: center;
+  font-size: 1.3em;
+  margin-top: 1%;
+}
+#player1Final{
+  margin-top: 5%;
+  margin-left: 23%;
+  font-size: 2em;
+  font-weight: bold;
+}
+#player2Final{
+  margin-top: 5%;
+  margin-left: 23%;
+  font-size: 2em;
+  font-weight: bold;
+}
+form{
+  margin-top: 2%;
+  margin-left: 2%;
 }
