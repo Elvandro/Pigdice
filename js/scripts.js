@@ -1,19 +1,18 @@
+//Business Logic
+
 var player1 = "";
 var player2 = "";
 
 function diceRoll() {
-  return Math.floor(6 * Math.random()) + 1;
+  return Math.floor(Math.random()*6) + 1;
 }
-
 function Player(name,total,diceScore,score) {
   this.name = name;
   this.total = 0;
   this.diceScore = 0;
   this.score = 0;
 }
-
-
-Player.prototype.rollAOne = function() {
+Player.prototype.rollIt = function() {
   if (this.diceScore === 1) {
     this.score = 0;
     $('#rollP2').toggle();
@@ -22,25 +21,25 @@ Player.prototype.rollAOne = function() {
     this.score += this.diceScore;
   }
 }
-
 Player.prototype.hold = function() {
   this.total += this.score;
   this.score = 0;
 }
-
 Player.prototype.winner = function() {
   if (this.total >= 100) {
     alert("Congratulations " + this.name + " You have won!!");
   }
 }
+
+//User Interface
 $(document).ready(function() {
   $('form#rollDice').submit(function(event) {
     event.preventDefault();
-    var p1 = $('input#player1').val()
-    var p2 = $('input#player2').val()
+    var player1Name = $('input#player1').val()
+    var player2Name = $('input#player2').val()
 
-    player1 = new Player(p1);
-    player2 = new Player(p2);
+    player1 = new Player(player1Name);
+    player2 = new Player(player2Name);
 
     console.log("Player 1 is: " + player1.name + " And Player 2 is: " + player2.name);
   });
@@ -50,8 +49,8 @@ $(document).ready(function() {
     $('#p1DiceThrow').empty()
     $('#roll1Total').empty();
     $('#p1DiceThrow').append("Dice roll: " + player1.diceScore);
-    player1.rollAOne();
-    $('#roll1Total').append("Current score is: " + player1.score);
+    player1.rollIt();
+    $('#roll1Total').append("Current score: " + player1.score);
   });
   $('#rollP2').click(function(event) {
     event.preventDefault();
@@ -59,8 +58,8 @@ $(document).ready(function() {
     $('#p2DiceThrow').empty()
     $('#roll2Total').empty();
     $('#p2DiceThrow').append("Dice roll: " + player2.diceScore);
-    player2.rollAOne();
-    $('#roll2Total').append("Current score is: " + player2.score);
+    player2.rollIt();
+    $('#roll2Total').append("Current score: " + player2.score);
   });
   $("#hold").click(function(event) {
     event.preventDefault();
